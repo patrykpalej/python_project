@@ -1,5 +1,5 @@
 from utils import dice_roll, expected_dice_roll
-from races import Human, Elf, Orc
+from characters.races import Human, Elf, Orc
 
 
 class Character:
