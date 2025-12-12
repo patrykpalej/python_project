@@ -1,4 +1,5 @@
 from utils import dice_roll, expected_dice_roll
+from races import Human, Elf, Orc
 
 
 class Character:
@@ -12,6 +13,8 @@ class Character:
         self.strength = 4
         self.intelligence = 4
         self.faith = 4
+
+        self._apply_race()
 
     def to_json(self):
         return self.__dict__
@@ -31,6 +34,12 @@ class Character:
 
     def heal(self, heal_value):
         self.hp = min(self.max_hp, self.hp + heal_value)
+
+    def _apply_race(self):
+        stats_modified = self.race.modify_statistics(self.__dict__)
+        self.strength = stats_modified["strength"]
+        self.intelligence = stats_modified["intelligence"]
+        self.faith = stats_modified["faith"]
 
 
 class Warrior(Character):
