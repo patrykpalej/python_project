@@ -20,7 +20,7 @@ class Character:
         return self.__dict__
 
     @property
-    def is_alice(self):
+    def is_alive(self):
         return self.hp > 0
 
     def __str__(self):
